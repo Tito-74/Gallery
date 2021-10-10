@@ -10,13 +10,21 @@ def index(request):
 
     return render(request,'home.html',{'post':post,'location':location})
 
-def location(request):
-    location = Location.get_location()
-    post = Post.fetch_by_location(location)
 
-    message = f'{location}'
+def post_location(request,location):
+    location=Location.get_locations()
+    # post=Post.get_post_by_id()
+    # image = Post.objects.filter(location__in=post.location.all())
+    image= Post.fetch_by_location(location)
+    message = f"{location}"
+    return render(request, 'location.html',{"message":message,"image": image,"location":location})
+# def post_location(request,location):
+#     location = Location.get_locations()
+#     post = Post.fetch_by_location(location)
 
-    return render(request,'location.html',{'location':location, 'post':post, 'message':message})
+#     message = f'{location}'
+
+#     return render(request,'location.html',{'location':location, 'post':post, 'message':message})
 
 def post_properties(request,post_id):
     location=Location.get_locations()

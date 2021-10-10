@@ -3,6 +3,7 @@
 {% block content%}
 {{block.super}}
 
+<div class="container">
 <div class="row">
     {% if category%}
     <h4 class="text-center">Found {{ category|length }} images on {{message}}</h4>
@@ -20,7 +21,7 @@
         <a href="#{{item.id}}" data-toggle="modal" data-target="#{{item.id}}">
             <img src="{{item.image.url}}" class="img-responsive" alt="{{image.name}}"
                 style="width:100%;width:100%">
-                <h5 class="text-center">{{item.name}}</h5>
+                <h3 class="text-center">{{item.name}}</h3>
                 <!-- <h5 class="text-center">{{item.desc}}</h5>
                 <h5 class="text-center">{{item.pub_date}}</h5> -->
         </a>
@@ -61,6 +62,7 @@
     </div>
     {% endfor %}
     {% endif %}
+</div>
 </div>
 
 

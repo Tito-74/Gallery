@@ -1,46 +1,41 @@
 <!-- {%extends 'base.html'%}
-
-{% block content%}
+{% block content %}
 {{block.super}}
-
 <div class="row">
-    {% if category%}
-    <h4 class="text-center">Found {{ category|length }} images on {{message}}</h4>
+    {% if image%}
+    <h4 class="text-center">Found {{ location|length }} images on {{message}}</h4>
     <div class="container">
         <hr />
     </div>
     {% else %}
-    <h4 class="text-center">There is no image for this category, search again</h4>
+    <h4 class="text-center">There is no image for this location, search again</h4>
     {% endif %}
 </div>
-<div class="row">
-    {% if category %}
-    {% for item in category %}
+<div class="container">
+    {% for item in image %}
+    <h2>hello</h2>
     <div class="col-md-4">
-        <a href="#{{category.id}}" data-toggle="modal" data-target="#{{category.id}}">
-            <img src="{{item.image.url}}" class="img-responsive" alt="{{image.name}}"
-                style="width:100%;width:100%">
-                <h5 class="text-center">{{item.name}}</h5>
-                <h5 class="text-center">{{item.desc}}</h5>
-                <h5 class="text-center">{{item.pub_date}}</h5>
+        <a href="#{{img.id}}" data-toggle="modal" data-target="#{{img.id}}">
+            <img src="{{img.image.url}}" class="img-responsive" alt="{{image.name}}" style="width:100%;width:100%">
+            <h4 class="text-center">{{item.location}}</h4>
         </a>
-        <div class="modal fade" id="{{category.id}}" role="dialog">
+        <div class="modal fade" id="{{img.id}}" role="dialog">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">{{category.image_name}}</h4>
-                        <img src="{{category.image.url}}" class="img-responsive" alt="Image"
+                        <h5 class="modal-title">{{img.image_name}}</h5>
+                        <img src="{{img.image.url}}" class="img-responsive" alt="Image"
                             style="width:100%;max-width:100%">
                     </div>
                     <div class="modal-body">
-                        <p class="text-justify">{{category.description}}</p>
-                        <p class="text-left"><b>Location:</b> {{category.location}}</p>
-                        <p class="text-left"><b>Category:</b> {{category.category}}</p>
+                        <p class="text-justify">{{img.description}}</p>
+                        <p class="text-left"><b>Location:</b> {{img.location}}</p>
+                        <p class="text-left"><b>Category:</b> {{img.category}}</p>
                     </div>
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
-                        <input id="{{category.id}}-url" class="form-control input-md responsive" type="text"
-                            value="{{category.image.url}}">
+                        <input id="{{img.id}}-url" class="form-control input-md responsive" type="text"
+                            value="{{img.image.url}}">
                     </div>
                     <button type="button" onclick="copyToClipboard();">Copy</button>
                     <script>
@@ -59,9 +54,6 @@
             </div>
         </div>
     </div>
-    {% endfor %}
-    {% endif %}
+    {%endfor%}
 </div>
-
-
 {% endblock %} -->

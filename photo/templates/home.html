@@ -1,22 +1,29 @@
 {%extends 'base.html'%}
 
+
 {% block content%}
 {{block.super}}
+<div class="container">
 
-{% for item in post %}
+<div class="introduction">
+<h1 class="text-center">Welcome To Gallery App</h1>
+<hr>
+<p id="about" class="text-center">
+    have a look at some of my interesting pictures took from different places at different occassions</p>
+</div>
 
-  <div class="row">
-    <!-- displaying News articles -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ item.name }} </h2>
+ 
+
+    
+
+    <div class="row text-center">
+      {% for item in post %}
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <img src="{{item.image.url}}" class="img-responsive" alt="Image">
+        <h3>Place:{{ item.name }}</h3>
+        <h3>Category:{{ item.category}}</h3>
+      </div>
+      {% endfor%}
     </div>
-
-    <!--Display news Article images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="{{item.image.url}}" class="img-responsive" alt="Image">
-    </div>
-
-  </div>
-
-  {% endfor%}
+</div>
   {%endblock%}
