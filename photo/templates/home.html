@@ -1,6 +1,22 @@
 {%extends 'base.html'%}
-<html>
-    <body>
-        <h2>Hey Welcome to the Gallery App </h2>
-    </body>
-</html>
+
+{% block content%}
+{{block.super}}
+
+{% for item in post %}
+
+  <div class="row">
+    <!-- displaying News articles -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2 class="text-center"> {{ item.name }} </h2>
+    </div>
+
+    <!--Display news Article images  -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{item.image.url}}" class="img-responsive" alt="Image">
+    </div>
+
+  </div>
+
+  {% endfor%}
+  {%endblock%}
