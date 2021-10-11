@@ -23,4 +23,4 @@ code . or atom . based on your favorite text editor you have.
  * HTML
 
 ## Further help
-For any challenge using the it please don't hesitate to contact me through Email: kipkirui133@gmail.com or call me through 0714969204
+For any challenge using the App please don't hesitate to contact me through Email: kipkirui133@gmail.com or call me through 0714969204
