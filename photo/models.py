@@ -39,7 +39,7 @@ class Post(models.Model):
     desc = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category,on_delete = models.CASCADE)
-    location = models.ForeignKey(Location,on_delete = models.CASCADE)
+    postLocation = models.ForeignKey(Location,on_delete = models.CASCADE)
     image = models.ImageField(upload_to = 'posts/')
 
     def __str__(self):
@@ -63,7 +63,7 @@ class Post(models.Model):
         return image
     @classmethod
     def fetch_by_location(cls,location):
-        location = cls.objects.filter(location__location = location).all()
+        location = cls.objects.filter(postLocation__location = location).all()
         return location
     @classmethod
     def get_post_by_id(cls, post_id):
