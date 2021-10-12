@@ -14,7 +14,6 @@ def index(request):
 def post_location(request):
     post=Post.objects.all()
     location = Location.get_locations()
-    # location=Location.get_locations()
     
     return render(request, 'location.html',{'post':post,"location":location})
 
@@ -37,19 +36,3 @@ def search_category(request):
 
 
 
-# def search_results(request):
-#     location = Location.get_location()
-
-    
-#     if 'category' in request.GET and request.GET["category"]:
-#         term = request.GET.get("category")
-#         searched = Post.search_results(search_term)
-#         message = f"{search_term}"
-
-#         return render(request, 'search.html',{"message":message,"post": searched,'location':location})
-
-#     else:
-#         message = "You haven't searched for any category"
-#         return render(request, 'search.html',{"message":message})
-
-#     return render(request,'search.html')
